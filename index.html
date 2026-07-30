@@ -143,6 +143,26 @@
   }
   .card p { font-size: 0.9rem; color: var(--muted); }
 
+  /* ===== Gallery ===== */
+  .gallery { background: var(--navy); }
+  .gallery .eyebrow { color: #F2A98F; }
+  .gallery .section-title { color: #fff; }
+  .gallery-grid {
+    columns: 4 220px;
+    column-gap: 12px;
+  }
+  .gallery-grid img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+  .gallery-note {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+  }
+
   /* ===== Schedule ===== */
   .schedule-list { display: flex; flex-direction: column; gap: 14px; }
   .schedule-item {
@@ -397,6 +417,25 @@
         <p>試合終了後は「#日本一のスタジアム花火」を約20分間たっぷり鑑賞できます。</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="gallery">
+  <div class="wrap">
+    <span class="eyebrow">Photo Gallery</span>
+    <h2 class="section-title">前回の様子</h2>
+    <div class="gallery-grid">
+      <img src="assets/gallery/g1.jpg" alt="バス車内の様子" loading="lazy">
+      <img src="assets/gallery/g2.jpg" alt="キックオフ前の選手整列" loading="lazy">
+      <img src="assets/gallery/g5.jpg" alt="スタジアム花火" loading="lazy">
+      <img src="assets/gallery/g3.jpg" alt="スタンドで応援する参加者" loading="lazy">
+      <img src="assets/gallery/g4.jpg" alt="観戦中のグループ" loading="lazy">
+      <img src="assets/gallery/g6.jpg" alt="スタジアム花火" loading="lazy">
+      <img src="assets/gallery/g7.jpg" alt="うちわを持って観戦" loading="lazy">
+      <img src="assets/gallery/g8.jpg" alt="ナイターのピッチ" loading="lazy">
+    </div>
+    <p class="gallery-note">※前回のバスツアーの様子です</p>
   </div>
 </section>
 
