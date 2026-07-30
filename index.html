@@ -10,12 +10,14 @@
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #F7F1E5;
-    --navy: #1D2B4F;
-    --navy-deep: #14203E;
-    --accent: #E65C41;
-    --sky: #2F80C6;
-    --muted: #6B7280;
+    /* コンビニマルシェ ロゴ由来: teal #009575 / lime #B8D200 / orange #ED6D00 / ink #221816 */
+    --cream: #F3F8E9;
+    --ink: #221816;
+    --navy: #009575;
+    --navy-deep: #00745B;
+    --accent: #ED6D00;
+    --sky: #B8D200;
+    --muted: #6B7266;
     --card: #FFFFFF;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,7 +25,7 @@
   body {
     font-family: "Noto Sans JP", sans-serif;
     background: var(--cream);
-    color: var(--navy);
+    color: var(--ink);
     line-height: 1.8;
   }
   .heading-font { font-family: "M PLUS Rounded 1c", "Noto Sans JP", sans-serif; }
@@ -41,7 +43,7 @@
   /* ===== Top bar ===== */
   .topbar {
     background: #fff;
-    border-bottom: 1px solid #EAE3D4;
+    border-bottom: 1px solid #E2ECCF;
     padding: 12px 0;
   }
   .topbar-inner { display: flex; align-items: center; gap: 12px; }
@@ -107,12 +109,12 @@
     padding: 16px 44px;
     border-radius: 999px;
     text-decoration: none;
-    box-shadow: 0 6px 0 #B8402B;
+    box-shadow: 0 6px 0 #C25800;
     transition: transform 0.15s, box-shadow 0.15s;
   }
   .btn-form:hover {
     transform: translateY(3px);
-    box-shadow: 0 3px 0 #B8402B;
+    box-shadow: 0 3px 0 #C25800;
   }
   .btn-form small { display: block; font-size: 0.72rem; font-weight: 700; opacity: 0.9; }
 
@@ -145,7 +147,7 @@
 
   /* ===== Gallery ===== */
   .gallery { background: var(--navy); }
-  .gallery .eyebrow { color: #F2A98F; }
+  .gallery .eyebrow { color: #D9E87A; }
   .gallery .section-title { color: #fff; }
   .gallery-grid {
     display: grid;
@@ -235,13 +237,14 @@
     font-weight: 800;
     font-size: 2rem;
     line-height: 1.2;
+    color: var(--navy);
   }
   .price-card .amount small { font-size: 1rem; margin-left: 2px; }
   .price-card.free .amount { color: var(--accent); }
   .gift-banner {
     margin-top: 24px;
     max-width: 560px;
-    background: #FDECE7;
+    background: #FDF0E2;
     border: 2px dashed var(--accent);
     border-radius: 14px;
     padding: 16px 20px;
@@ -268,7 +271,7 @@
   .items-list li {
     padding: 10px 0 10px 34px;
     position: relative;
-    border-bottom: 1px dashed #D8D0C0;
+    border-bottom: 1px dashed #D5E2BE;
     font-weight: 500;
   }
   .items-list li::before {
@@ -280,7 +283,7 @@
   }
   .caution {
     margin-top: 18px;
-    background: #FDECE7;
+    background: #FDF0E2;
     border-left: 4px solid var(--accent);
     border-radius: 0 10px 10px 0;
     padding: 12px 16px;
