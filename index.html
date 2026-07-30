@@ -38,6 +38,21 @@
     margin-bottom: 8px;
   }
 
+  /* ===== Top bar ===== */
+  .topbar {
+    background: #fff;
+    border-bottom: 1px solid #EAE3D4;
+    padding: 12px 0;
+  }
+  .topbar-inner { display: flex; align-items: center; gap: 12px; }
+  .topbar img { height: 36px; width: auto; }
+  .topbar .host-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
   /* ===== Hero ===== */
   .hero { padding: 64px 0 48px; overflow: hidden; }
   .hero-inner {
@@ -207,6 +222,50 @@
     transform: rotate(3deg);
   }
 
+  /* ===== Organizer ===== */
+  .organizer { background: #fff; text-align: center; }
+  .organizer .host-tag {
+    display: inline-block;
+    background: var(--navy);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    padding: 6px 22px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .organizer img { width: 100%; max-width: 480px; height: auto; }
+  .organizer p { margin-top: 16px; font-size: 0.95rem; color: var(--muted); }
+  .organizer-banner { margin-top: 28px; }
+  .organizer-banner a {
+    position: relative;
+    display: block;
+    max-width: 720px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .organizer-banner img.field { max-width: none; width: 100%; display: block; }
+  .organizer-banner .site-link {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.92);
+    color: var(--navy);
+    font-weight: 900;
+    font-size: 1rem;
+    padding: 12px 28px;
+    border-radius: 999px;
+  }
+  .organizer .veggies {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin-top: 32px;
+  }
+
   /* ===== Footer ===== */
   footer {
     background: var(--navy-deep);
@@ -224,6 +283,14 @@
 </style>
 </head>
 <body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <img src="assets/cm_logo_h.png" alt="八百屋直送やさい＆くだもの コンビニマルシェ">
+    <span class="host-label">主催</span>
+  </div>
+</div>
 
 <!-- Hero -->
 <header class="hero">
@@ -336,6 +403,24 @@
       <img class="fanart" src="assets/photo.jpg" alt="手描きのジンベーニョ">
     </div>
   </div>
+</section>
+
+<!-- Organizer -->
+<section class="organizer">
+  <div class="wrap">
+    <span class="host-tag">主催</span>
+    <div>
+      <img src="assets/cm_logo_h.png" alt="八百屋直送やさい＆くだもの コンビニマルシェ">
+    </div>
+    <p>本バスツアーは、八百屋直送やさい＆くだもの「コンビニマルシェ」が主催しています。</p>
+    <div class="organizer-banner">
+      <a href="https://www.k-foodplanning.com/" target="_blank" rel="noopener">
+        <img class="field" src="assets/cm_field.jpg" alt="コンビニマルシェ 公式サイト">
+        <span class="site-link">公式サイトを見る →</span>
+      </a>
+    </div>
+  </div>
+  <img class="veggies" src="assets/cm_veggies.jpg" alt="">
 </section>
 
 <footer>
