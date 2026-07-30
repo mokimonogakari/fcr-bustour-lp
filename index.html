@@ -250,20 +250,14 @@
   .organizer-banner .site-link {
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 14px;
+    transform: translateX(-50%);
     background: rgba(255,255,255,0.92);
     color: var(--navy);
     font-weight: 900;
     font-size: 1rem;
     padding: 12px 28px;
     border-radius: 999px;
-  }
-  .organizer .veggies {
-    display: block;
-    width: 100%;
-    max-width: none;
-    margin-top: 32px;
   }
 
   /* ===== Footer ===== */
@@ -279,6 +273,11 @@
     .hero { padding-top: 40px; }
     .schedule-item { grid-template-columns: 80px 1fr; gap: 14px; }
     .time-chip { font-size: 0.85rem; }
+    .btn-form { font-size: 1rem; padding: 14px 28px; }
+    .cta-mascots { flex-wrap: wrap; }
+    .cta-mascots img, .cta-mascots .fanart { height: 100px; }
+    .topbar img { height: 30px; }
+    .hero-img img { max-width: 240px; }
   }
 </style>
 </head>
@@ -415,12 +414,11 @@
     <p>本バスツアーは、八百屋直送やさい＆くだもの「コンビニマルシェ」が主催しています。</p>
     <div class="organizer-banner">
       <a href="https://www.k-foodplanning.com/" target="_blank" rel="noopener">
-        <img class="field" src="assets/cm_field.jpg" alt="コンビニマルシェ 公式サイト">
+        <img class="field" src="assets/cm_hero.jpg" alt="コンビニマルシェ 公式サイト">
         <span class="site-link">公式サイトを見る →</span>
       </a>
     </div>
   </div>
-  <img class="veggies" src="assets/cm_veggies.jpg" alt="">
 </section>
 
 <footer>
