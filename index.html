@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FC琉球 観戦バスツアー｜ひやごんスタジアムへ行こう！</title>
+<meta name="description" content="牧志公園発・ひやごんスタジアム行き観戦バスツアー。FC琉球 OKINAWA vs SC相模原、試合後は日本一のスタジアム花火！">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F1E5;
+    --navy: #1D2B4F;
+    --navy-deep: #14203E;
+    --accent: #E65C41;
+    --sky: #2F80C6;
+    --muted: #6B7280;
+    --card: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Noto Sans JP", sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    line-height: 1.8;
+  }
+  .heading-font { font-family: "M PLUS Rounded 1c", "Noto Sans JP", sans-serif; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  .eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  /* ===== Hero ===== */
+  .hero { padding: 64px 0 48px; overflow: hidden; }
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-text { flex: 1 1 420px; }
+  .hero-title {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+  }
+  .hero-title .accent { color: var(--accent); }
+  .hero-sub {
+    margin-top: 16px;
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
+  .match-card {
+    margin-top: 24px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 14px;
+    padding: 18px 24px;
+    display: inline-block;
+  }
+  .match-card .vs {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+  }
+  .match-card .meta {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    margin-top: 4px;
+  }
+  .hero-img { flex: 0 1 320px; text-align: center; }
+  .hero-img img { width: 100%; max-width: 320px; height: auto; }
+
+  /* ===== CTA button ===== */
+  .btn-form {
+    display: inline-block;
+    margin-top: 28px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.1rem;
+    padding: 16px 44px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 6px 0 #B8402B;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-form:hover {
+    transform: translateY(3px);
+    box-shadow: 0 3px 0 #B8402B;
+  }
+  .btn-form small { display: block; font-size: 0.72rem; font-weight: 700; opacity: 0.9; }
+
+  /* ===== Sections ===== */
+  section { padding: 56px 0; }
+  .section-title {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    margin-bottom: 32px;
+  }
+
+  /* ===== Highlights ===== */
+  .highlights { background: #fff; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+  .card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .card img { height: 120px; width: auto; margin-bottom: 16px; }
+  .card h3 {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  .card p { font-size: 0.9rem; color: var(--muted); }
+
+  /* ===== Schedule ===== */
+  .schedule-list { display: flex; flex-direction: column; gap: 14px; }
+  .schedule-item {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .time-chip {
+    background: var(--navy);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-align: center;
+    border-radius: 8px;
+    padding: 8px 0;
+    letter-spacing: 0.05em;
+  }
+  .time-chip.flag { background: var(--accent); }
+  .schedule-body strong { font-size: 1.05rem; font-weight: 700; display: block; }
+  .schedule-body span { font-size: 0.88rem; color: var(--muted); }
+  .schedule-note {
+    margin-top: 28px;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  /* ===== Items ===== */
+  .items { background: #fff; }
+  .items-flex { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+  .items-text { flex: 1 1 380px; }
+  .items-list { list-style: none; }
+  .items-list li {
+    padding: 10px 0 10px 34px;
+    position: relative;
+    border-bottom: 1px dashed #D8D0C0;
+    font-weight: 500;
+  }
+  .items-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 4px;
+    color: var(--sky);
+    font-weight: 900;
+  }
+  .caution {
+    margin-top: 18px;
+    background: #FDECE7;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+  .items-img { flex: 0 1 260px; text-align: center; }
+  .items-img img { width: 100%; max-width: 240px; }
+
+  /* ===== Bottom CTA ===== */
+  .cta {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+  }
+  .cta .section-title { color: #fff; margin-bottom: 12px; }
+  .cta p { opacity: 0.9; }
+  .cta-mascots {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .cta-mascots img { height: 130px; width: auto; }
+  .cta-mascots .fanart {
+    height: 130px;
+    border-radius: 12px;
+    border: 4px solid #fff;
+    transform: rotate(3deg);
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    font-size: 0.78rem;
+    padding: 24px 20px;
+  }
+
+  @media (max-width: 560px) {
+    .hero { padding-top: 40px; }
+    .schedule-item { grid-template-columns: 80px 1fr; gap: 14px; }
+    .time-chip { font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <span class="eyebrow">FC RYUKYU BUS TOUR</span>
+      <h1 class="hero-title">バスに乗って、<br>ひやごんスタジアムへ<span class="accent">！</span></h1>
+      <p class="hero-sub">牧志公園発・観戦バスツアー。試合のあとは<br>「#日本一のスタジアム花火」で締めくくり。</p>
+      <div class="match-card">
+        <div class="vs">FC琉球 OKINAWA vs SC相模原</div>
+        <div class="meta">18:00 キックオフ ／ ひやごんスタジアム</div>
+      </div>
+      <div>
+        <a class="btn-form" href="#">参加申し込みフォームへ<small>ENTRY FORM</small></a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="assets/pose_hero.png" alt="FC琉球マスコット ジンベーニョ">
+    </div>
+  </div>
+</header>
+
+<!-- Highlights -->
+<section class="highlights">
+  <div class="wrap">
+    <span class="eyebrow">Highlights</span>
+    <h2 class="section-title">バスツアーのたのしみ</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="assets/pose_front.png" alt="">
+        <h3>らくらくバス移動</h3>
+        <p>牧志公園から乗るだけ。運転も駐車場の心配もいりません。帰りもそのまま牧志公園まで。</p>
+      </div>
+      <div class="card">
+        <img src="assets/pose_heading.png" alt="">
+        <h3>ナイトゲーム観戦</h3>
+        <p>18:00キックオフ。到着後はグッズや観戦フードを物色して、スタジアムグルメも満喫。</p>
+      </div>
+      <div class="card">
+        <img src="assets/pose_cheer.png" alt="">
+        <h3>スタジアム花火</h3>
+        <p>試合終了後は「#日本一のスタジアム花火」を約20分間たっぷり鑑賞できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Schedule -->
+<section id="schedule">
+  <div class="wrap">
+    <span class="eyebrow">Bus Tour Schedule</span>
+    <h2 class="section-title">当日スケジュール（目安）</h2>
+    <div class="schedule-list">
+      <div class="schedule-item">
+        <div class="time-chip flag">START</div>
+        <div class="schedule-body"><strong>牧志公園を出発</strong><span>集合時間は決定次第ご案内します</span></div>
+      </div>
+      <div class="schedule-item">
+        <div class="time-chip">17:00</div>
+        <div class="schedule-body"><strong>ひやごんスタジアム到着</strong><span>グッズ・観戦フードを物色</span></div>
+      </div>
+      <div class="schedule-item">
+        <div class="time-chip">18:00</div>
+        <div class="schedule-body"><strong>キックオフ！試合開始</strong><span>FC琉球 OKINAWA vs SC相模原</span></div>
+      </div>
+      <div class="schedule-item">
+        <div class="time-chip">20:00</div>
+        <div class="schedule-body"><strong>試合終了・花火鑑賞</strong><span>#日本一のスタジアム花火（約20分間）</span></div>
+      </div>
+      <div class="schedule-item">
+        <div class="time-chip">21:20</div>
+        <div class="schedule-body"><strong>スタジアム出発</strong><span>出発5分前目安にバスへ</span></div>
+      </div>
+      <div class="schedule-item">
+        <div class="time-chip flag">GOAL</div>
+        <div class="schedule-body"><strong>牧志公園 到着</strong><span>バスで30〜40分</span></div>
+      </div>
+    </div>
+    <p class="schedule-note">※昨年のバスツアー実績を参考にした目安時間です。集合場所・時間は確定次第更新します。</p>
+  </div>
+</section>
+
+<!-- Items -->
+<section class="items">
+  <div class="wrap items-flex">
+    <div class="items-text">
+      <span class="eyebrow">Check List</span>
+      <h2 class="section-title">持ち物</h2>
+      <ul class="items-list">
+        <li>飲み物・食べ物</li>
+        <li>タオル</li>
+        <li>歩きやすい靴</li>
+      </ul>
+      <div class="caution">※会場は缶の持ち込み禁止です（バス車内はOK）</div>
+    </div>
+    <div class="items-img">
+      <img src="assets/pose_bow.png" alt="お辞儀するジンベーニョ">
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2 class="section-title">みんなで応援に行こう！</h2>
+    <p>ジンベーニョもスタジアムで待っています。お申し込みは下のボタンから。</p>
+    <a class="btn-form" href="#">参加申し込みフォームへ<small>ENTRY FORM</small></a>
+    <div class="cta-mascots">
+      <img src="assets/pose_wave.png" alt="">
+      <img class="fanart" src="assets/photo.jpg" alt="手描きのジンベーニョ">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>本ページの時間はすべて目安です。詳細が確定し次第、内容を更新します。</p>
+</footer>
+
+</body>
+</html>
