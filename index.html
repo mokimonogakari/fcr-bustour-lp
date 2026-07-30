@@ -170,8 +170,66 @@
     color: var(--muted);
   }
 
+  /* ===== Hero badges ===== */
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .badge {
+    background: #fff;
+    border: 2px solid var(--navy);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 5px 14px;
+    border-radius: 999px;
+  }
+  .badge.gift { background: var(--navy); color: #fff; }
+
+  /* ===== Price ===== */
+  .price { background: #fff; }
+  .price-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 560px;
+  }
+  .price-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+  }
+  .price-card .who { font-weight: 700; font-size: 0.95rem; margin-bottom: 6px; }
+  .price-card .amount {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  .price-card .amount small { font-size: 1rem; margin-left: 2px; }
+  .price-card.free .amount { color: var(--accent); }
+  .gift-banner {
+    margin-top: 24px;
+    max-width: 560px;
+    background: #FDECE7;
+    border: 2px dashed var(--accent);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .gift-banner .gift-tag {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .gift-banner strong { font-size: 1.05rem; }
+
   /* ===== Items ===== */
-  .items { background: #fff; }
   .items-flex { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
   .items-text { flex: 1 1 380px; }
   .items-list { list-style: none; }
@@ -302,6 +360,11 @@
         <div class="vs">FC琉球 OKINAWA vs SC相模原</div>
         <div class="meta">18:00 キックオフ ／ ひやごんスタジアム</div>
       </div>
+      <div class="hero-badges">
+        <span class="badge">大人 3,000円</span>
+        <span class="badge">高校生まで無料</span>
+        <span class="badge gift">ベースボールシャツ付き</span>
+      </div>
       <div>
         <a class="btn-form" href="#">参加申し込みフォームへ<small>ENTRY FORM</small></a>
       </div>
@@ -344,8 +407,8 @@
     <h2 class="section-title">当日スケジュール（目安）</h2>
     <div class="schedule-list">
       <div class="schedule-item">
-        <div class="time-chip flag">START</div>
-        <div class="schedule-body"><strong>牧志公園を出発</strong><span>集合時間は決定次第ご案内します</span></div>
+        <div class="time-chip flag">16:00</div>
+        <div class="schedule-body"><strong>牧志公園を出発</strong><span>前回実績の目安時間。集合時間は決定次第ご案内します</span></div>
       </div>
       <div class="schedule-item">
         <div class="time-chip">17:00</div>
@@ -369,6 +432,28 @@
       </div>
     </div>
     <p class="schedule-note">※昨年のバスツアー実績を参考にした目安時間です。集合場所・時間は確定次第更新します。</p>
+  </div>
+</section>
+
+<!-- Price -->
+<section class="price">
+  <div class="wrap">
+    <span class="eyebrow">Price</span>
+    <h2 class="section-title">参加費</h2>
+    <div class="price-cards">
+      <div class="price-card">
+        <div class="who">大人</div>
+        <div class="amount">3,000<small>円</small></div>
+      </div>
+      <div class="price-card free">
+        <div class="who">高校生まで</div>
+        <div class="amount">無料</div>
+      </div>
+    </div>
+    <div class="gift-banner">
+      <span class="gift-tag">参加特典</span>
+      <strong>ベースボールシャツプレゼント！</strong>
+    </div>
   </div>
 </section>
 
