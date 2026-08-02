@@ -107,7 +107,7 @@
 <div class="wrap">
   <h1>申込ダッシュボード</h1>
   <p class="sub">FC琉球 観戦チケット付きバスツアー（8/29 vs SC相模原）</p>
-  <p class="updated">最終更新: <span id="updated">—</span>（15分ごとに自動更新）</p>
+  <p class="updated">最終更新: <span id="updated">—</span></p>
 
   <div class="tiles">
     <div class="tile"><div class="label">申込組数</div><div class="value"><span id="groups">—</span><small>組</small></div></div>
@@ -143,8 +143,10 @@
 <script>
 (async () => {
   const $ = id => document.getElementById(id);
+  // GASウェブアプリのデプロイURL（/exec）。未設定の間は静的data.jsonにフォールバック
+  const API_URL = '';
   try {
-    const res = await fetch('./data.json?t=' + Date.now());
+    const res = await fetch(API_URL || './data.json?t=' + Date.now());
     if (!res.ok) throw new Error(res.status);
     const d = await res.json();
     const yen = n => n.toLocaleString('ja-JP') + '円';
