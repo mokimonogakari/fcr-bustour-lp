@@ -7,7 +7,7 @@ cron (15分毎) 実行前提。値に変化がなければ commit しない。
 import json
 import subprocess
 import sys
-from datetime import datetime, timezone, timedelta
+from datetime import date, datetime, timezone, timedelta
 
 import requests
 from google.oauth2.credentials import Credentials
@@ -17,6 +17,14 @@ REPO = '/home/claude/work/fcr-bustour'
 DATA = f'{REPO}/dashboard/data.json'
 SPREADSHEET_ID = '1ocIIxTurXOLTGyXQOhvq4fZ8g5ewqOnUuUHT_xWPPt4'
 JST = timezone(timedelta(hours=9))
+END_DATE = date(2026, 8, 29)  # ツアー当日いっぱいで更新終了
+
+
+def remove_own_cron():
+    """crontab から自分のエントリを削除する。"""
+    cur = subprocess.run(['crontab', '-l'], capture_output=True, text=True, check=True).stdout
+    kept = [l for l in cur.splitlines() if 'update_dashboard.py' not in l]
+    subprocess.run(['crontab', '-'], input='\n'.join(kept) + '\n', text=True, check=True)
 
 
 def get_creds():
@@ -33,6 +41,10 @@ def get_creds():
 
 
 def main():
+    if datetime.now(JST).date() > END_DATE:
+        remove_own_cron()
+        print(f'{END_DATE} を過ぎたため cron エントリを削除して終了')
+        return
     # 先にpullしておく（書き換え後にpullするとrebaseが失敗する）
     subprocess.run(['git', '-C', REPO, 'pull', '-q', '--rebase', '--autostash',
                     'origin', 'main'], check=True)
