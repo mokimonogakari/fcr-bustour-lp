@@ -57,6 +57,9 @@
   .tile.total { background: var(--brand); }
   .tile.total .label { color: rgba(255,255,255,0.85); }
   .tile.total .value { color: #fff; }
+  .tile.hold { border: 2px dashed var(--accent); }
+  .tile.hold .value { color: var(--accent); }
+  .tile .sub-note { font-size: 0.74rem; color: var(--muted); }
 
   .breakdown {
     background: #fff;
@@ -163,6 +166,11 @@
     <div class="tile"><div class="label">大人</div><div class="value"><span id="adults">—</span><small>名</small></div></div>
     <div class="tile"><div class="label">高校生以下</div><div class="value"><span id="kids">—</span><small>名</small></div></div>
     <div class="tile total"><div class="label">合計人数</div><div class="value"><span id="total">—</span><small>名</small></div></div>
+    <div class="tile hold" id="holdTile" style="display:none">
+      <div class="label">保留（確認中）</div>
+      <div class="value"><span id="holdPeople">—</span><small>名</small></div>
+      <div class="sub-note">最大想定 <span id="holdMax">—</span>名</div>
+    </div>
   </div>
 
   <div class="breakdown">
@@ -289,6 +297,9 @@
       $('tickets').style.display = '';
     }
     if (x.pending_people > 0 || x.pending_groups > 0) {
+      $('holdPeople').textContent = x.pending_people;
+      $('holdMax').textContent = x.max_total;
+      $('holdTile').style.display = '';
       $('pGroups').textContent = x.pending_groups;
       $('pPeople').textContent = x.pending_people;
       $('pMax').textContent = x.max_total;
