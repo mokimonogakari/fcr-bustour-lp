@@ -101,6 +101,21 @@
     display: none;
   }
   .err { color: var(--accent); font-weight: 700; display: none; margin-top: 18px; }
+
+  .links { margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .links a {
+    display: inline-block;
+    background: #fff;
+    border: 2px solid var(--brand);
+    color: var(--brand);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 9px 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .links a:hover { background: var(--brand); color: #fff; }
 </style>
 </head>
 <body>
@@ -138,6 +153,10 @@
 
   <p class="empty" id="empty">まだ申し込みはありません。</p>
   <p class="err" id="err">データの読み込みに失敗しました。時間をおいて再読み込みしてください。</p>
+
+  <div class="links">
+    <a href="https://docs.google.com/spreadsheets/d/1ocIIxTurXOLTGyXQOhvq4fZ8g5ewqOnUuUHT_xWPPt4/edit" target="_blank" rel="noopener">申込一覧スプレッドシートを開く →</a>
+  </div>
 </div>
 
 <script>
