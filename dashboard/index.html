@@ -75,11 +75,24 @@
   }
   .bar .seg-adult { background: var(--brand); }
   .bar .seg-kids { background: var(--lime-dark); }
+  .bar .seg-unknown { background: #B9C2AE; }
   .legend { display: flex; gap: 18px; margin-top: 10px; flex-wrap: wrap; }
   .legend span { font-size: 0.8rem; color: var(--muted); display: flex; align-items: center; gap: 6px; }
   .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
   .legend .sw-adult { background: var(--brand); }
   .legend .sw-kids { background: var(--lime-dark); }
+  .legend .sw-unknown { background: #B9C2AE; }
+  .legend .unknown-item { display: none; }
+  .note {
+    margin-top: 12px;
+    background: #fff;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    font-size: 0.82rem;
+    color: var(--muted);
+    display: none;
+  }
 
   table {
     width: 100%;
@@ -136,10 +149,12 @@
     <div class="bar" role="img" aria-label="大人と高校生以下の人数比">
       <div class="seg-adult" id="segAdult" style="width:50%"></div>
       <div class="seg-kids" id="segKids" style="width:50%"></div>
+      <div class="seg-unknown" id="segUnknown" style="width:0%"></div>
     </div>
     <div class="legend">
       <span><i class="sw-adult"></i>大人 <b id="adultsL">—</b>名</span>
       <span><i class="sw-kids"></i>高校生以下 <b id="kidsL">—</b>名</span>
+      <span class="unknown-item" id="unknownItem"><i class="sw-unknown"></i>内訳未確認 <b id="unknownL">—</b>名</span>
     </div>
   </div>
 
@@ -147,15 +162,19 @@
     <tr><th>申込組数</th><td id="tGroups">—</td></tr>
     <tr><th>大人（4,000円）</th><td id="tAdults">—</td></tr>
     <tr><th>高校生以下（無料）</th><td id="tKids">—</td></tr>
+    <tr id="rUnknown" style="display:none"><th>内訳未確認</th><td id="tUnknown">—</td></tr>
     <tr><th>合計人数</th><td id="tTotal">—</td></tr>
     <tr><th>参加費見込み</th><td id="tRevenue">—</td></tr>
   </table>
+
+  <p class="note" id="note"></p>
 
   <p class="empty" id="empty">まだ申し込みはありません。</p>
   <p class="err" id="err">データの読み込みに失敗しました。時間をおいて再読み込みしてください。</p>
 
   <div class="links">
     <a href="https://docs.google.com/spreadsheets/d/1ocIIxTurXOLTGyXQOhvq4fZ8g5ewqOnUuUHT_xWPPt4/edit" target="_blank" rel="noopener">申込一覧スプレッドシートを開く →</a>
+    <a href="https://docs.google.com/spreadsheets/d/1ocIIxTurXOLTGyXQOhvq4fZ8g5ewqOnUuUHT_xWPPt4/edit#gid=1648884445" target="_blank" rel="noopener">LINE等の追加名簿を開く →</a>
   </div>
 </div>
 
@@ -181,12 +200,26 @@
     $('tTotal').textContent = d.total + '名';
     $('tRevenue').textContent = yen(d.revenue);
     $('updated').textContent = d.updated_at;
+    // 大人・高校生以下のどちらか未確定の人数（LINE等でのお申し込み分）
+    const unknown = Math.max(0, d.total - d.adults - d.kids);
+    if (unknown > 0) {
+      $('unknownL').textContent = unknown;
+      $('tUnknown').textContent = unknown + '名';
+      $('unknownItem').style.display = 'flex';
+      $('rUnknown').style.display = '';
+      $('note').textContent = 'うち' + unknown + '名は大人／高校生以下の内訳が未確認です'
+        + '（LINE等でのお申し込み分）。参加費見込みは内訳が確定している大人'
+        + d.adults + '名分のみで計算しています。';
+      $('note').style.display = 'block';
+    }
     if (d.total > 0) {
       $('segAdult').style.width = (d.adults / d.total * 100) + '%';
       $('segKids').style.width = (d.kids / d.total * 100) + '%';
+      $('segUnknown').style.width = (unknown / d.total * 100) + '%';
     } else {
       $('segAdult').style.width = '0%';
       $('segKids').style.width = '0%';
+      $('segUnknown').style.width = '0%';
       $('empty').style.display = 'block';
     }
   } catch (e) {
