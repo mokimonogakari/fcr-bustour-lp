@@ -253,7 +253,7 @@
     gap: 14px;
     flex-wrap: wrap;
   }
-  .gift-banner .gift-tag {
+  .gift-tag {
     background: var(--accent);
     color: #fff;
     font-weight: 700;
@@ -263,6 +263,55 @@
     white-space: nowrap;
   }
   .gift-banner strong { font-size: 1.05rem; }
+
+  /* ===== Perks ===== */
+  .perks {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .perk-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+  .perk-card img {
+    width: 116px;
+    height: 116px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+  .perk-icon {
+    width: 116px;
+    height: 116px;
+    border-radius: 12px;
+    background: #E4F0D3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    flex-shrink: 0;
+  }
+  .perk-body h3 {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin: 8px 0 4px;
+  }
+  .perk-body p { font-size: 0.88rem; color: var(--muted); }
+  .perk-link {
+    display: inline-block;
+    margin-top: 6px;
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
 
   /* ===== Items ===== */
   .items-flex { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
@@ -388,6 +437,11 @@
     .price-card { padding: 18px; }
     .price-card .amount { font-size: 1.7rem; }
     .gift-banner strong { font-size: 0.95rem; }
+    .perk-card { padding: 16px; gap: 14px; }
+    .perk-card img, .perk-icon { width: 88px; height: 88px; }
+    .perk-icon { font-size: 2.2rem; }
+    .perk-body h3 { font-size: 0.98rem; }
+    .perk-body p { font-size: 0.82rem; }
     .cta-mascots { flex-wrap: wrap; }
     .cta-mascots img, .cta-mascots .fanart { height: 100px; }
   }
@@ -418,6 +472,8 @@
         <span class="badge">観戦チケット付き 大人4,000円</span>
         <span class="badge">高校生まで無料</span>
         <span class="badge gift">ベースボールシャツ付き</span>
+        <span class="badge gift">試作品アイス配布</span>
+        <span class="badge gift">エコバッグ配布</span>
         <span class="badge">牧志公園 15:45集合</span>
       </div>
       <div>
@@ -531,6 +587,25 @@
     <div class="gift-banner">
       <span class="gift-tag">参加特典</span>
       <strong>ベースボールシャツプレゼント！</strong>
+    </div>
+    <div class="perks">
+      <div class="perk-card">
+        <img src="assets/ice_prototype.jpg" alt="ジンベーニョをかたどった試作品アイスキャンディー">
+        <div class="perk-body">
+          <span class="gift-tag">参加特典</span>
+          <h3>コンビニマルシェの試作品アイスを配布！</h3>
+          <p>主催・コンビニマルシェが開発中の試作品アイスを、ツアー参加者のみなさんに配布します。</p>
+        </div>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">🛍️</div>
+        <div class="perk-body">
+          <span class="gift-tag">来場特典</span>
+          <h3>エコバッグ配布！</h3>
+          <p>当日はビジター席を除く来場者先着7,000名に、入場ゲートでエコバッグが配布されます。</p>
+          <a class="perk-link" href="https://fcryukyu.com/news/66036/" target="_blank" rel="noopener">FC琉球公式のお知らせを見る →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
