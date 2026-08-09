@@ -240,18 +240,6 @@
   }
   .price-card .amount small { font-size: 1rem; margin-left: 2px; }
   .price-card.free .amount { color: var(--accent); }
-  .gift-banner {
-    margin-top: 24px;
-    max-width: 560px;
-    background: #FDF0E2;
-    border: 2px dashed var(--accent);
-    border-radius: 14px;
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
   .gift-tag {
     background: var(--accent);
     color: #fff;
@@ -261,13 +249,11 @@
     border-radius: 999px;
     white-space: nowrap;
   }
-  .gift-banner strong { font-size: 1.05rem; }
-
   /* ===== Perks ===== */
   .perks {
     margin-top: 24px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
   }
   .perk-card {
@@ -443,7 +429,6 @@
     .schedule-body span { font-size: 0.82rem; }
     .price-card { padding: 18px; }
     .price-card .amount { font-size: 1.7rem; }
-    .gift-banner strong { font-size: 0.95rem; }
     .perks { gap: 16px; }
     .perk-body { padding: 14px 18px 18px; }
     .perk-body h3 { font-size: 0.98rem; }
@@ -590,11 +575,17 @@
         <div class="amount">無料</div>
       </div>
     </div>
-    <div class="gift-banner">
-      <span class="gift-tag">参加特典</span>
-      <strong>ベースボールシャツプレゼント！</strong>
-    </div>
     <div class="perks">
+      <div class="perk-card">
+        <div class="perk-media">
+          <img src="assets/bb_shirt.jpg" alt="花火ベースボールシャツ 配布総数1万枚">
+          <span class="gift-tag">参加特典</span>
+        </div>
+        <div class="perk-body">
+          <h3>花火BBシャツプレゼント！</h3>
+          <p>「#日本一のスタジアム花火1万人プロジェクト」の花火ベースボールシャツ。配布総数はなんと1万枚！</p>
+        </div>
+      </div>
       <div class="perk-card">
         <div class="perk-media">
           <img src="assets/ice_prototype.jpg" alt="ジンベーニョをかたどった試作品アイスキャンディー">
