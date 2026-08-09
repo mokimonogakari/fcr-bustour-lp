@@ -115,6 +115,27 @@
   }
   .err { color: var(--accent); font-weight: 700; display: none; margin-top: 18px; }
 
+  .pending {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px 16px;
+    margin-top: 14px;
+    display: none;
+  }
+  .pending h2 { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+  .pending .lead { font-size: 0.82rem; color: var(--muted); }
+  .pending .figures { display: flex; gap: 28px; margin-top: 14px; flex-wrap: wrap; }
+  .pending .fig .label { font-size: 0.78rem; font-weight: 700; color: var(--muted); }
+  .pending .fig .value {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    color: var(--accent);
+  }
+  .pending .fig .value small { font-size: 0.9rem; margin-left: 2px; }
+  .pending .fig.max .value { color: var(--ink); }
+
   .links { margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap; }
   .links a {
     display: inline-block;
@@ -168,6 +189,20 @@
   </table>
 
   <p class="note" id="note"></p>
+
+  <div class="pending" id="pending">
+    <h2>保留（確認中）</h2>
+    <p class="lead">参加が未確定の方です。上の集計には含めていません。</p>
+    <div class="figures">
+      <div class="fig"><div class="label">保留</div><div class="value"><span id="pGroups">—</span><small>組</small></div></div>
+      <div class="fig"><div class="label">保留人数</div><div class="value"><span id="pPeople">—</span><small>名</small></div></div>
+      <div class="fig max"><div class="label">最大想定（確定＋保留）</div><div class="value"><span id="pMax">—</span><small>名</small></div></div>
+    </div>
+  </div>
+
+  <table id="tickets" style="display:none">
+    <tr><th>チケット必要枚数</th><td id="tTickets">—</td></tr>
+  </table>
 
   <p class="empty" id="empty">まだ申し込みはありません。</p>
   <p class="err" id="err">データの読み込みに失敗しました。時間をおいて再読み込みしてください。</p>
@@ -224,6 +259,25 @@
     }
   } catch (e) {
     $('err').style.display = 'block';
+  }
+
+  // 保留人数・チケット枚数はGAS APIが返さないため、OCIが更新する集計ファイルから読む
+  try {
+    const res2 = await fetch('./data.json?t=' + Date.now());
+    if (!res2.ok) throw new Error(res2.status);
+    const x = await res2.json();
+    if (x.tickets > 0) {
+      $('tTickets').textContent = x.tickets + '枚';
+      $('tickets').style.display = '';
+    }
+    if (x.pending_people > 0 || x.pending_groups > 0) {
+      $('pGroups').textContent = x.pending_groups;
+      $('pPeople').textContent = x.pending_people;
+      $('pMax').textContent = x.max_total;
+      $('pending').style.display = 'block';
+    }
+  } catch (e) {
+    // 拡張データが無い場合は保留・チケットの欄を出さないだけ
   }
 })();
 </script>
