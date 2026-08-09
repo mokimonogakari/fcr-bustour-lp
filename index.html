@@ -266,52 +266,60 @@
 
   /* ===== Perks ===== */
   .perks {
-    margin-top: 20px;
+    margin-top: 24px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
   }
   .perk-card {
-    background: var(--cream);
-    border-radius: 16px;
-    padding: 20px;
+    background: #fff;
+    border: 1px solid #E6EED6;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(34, 24, 22, 0.07);
     display: flex;
-    gap: 18px;
-    align-items: center;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
-  .perk-card img {
-    width: 116px;
-    height: 116px;
+  .perk-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(34, 24, 22, 0.11);
+  }
+  .perk-media { position: relative; }
+  .perk-media img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
-    border-radius: 12px;
-    flex-shrink: 0;
+    display: block;
   }
-  .perk-icon {
-    width: 116px;
-    height: 116px;
-    border-radius: 12px;
-    background: #E4F0D3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    flex-shrink: 0;
+  .perk-media .gift-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   }
+  .perk-body { padding: 18px 22px 22px; }
   .perk-body h3 {
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 800;
-    font-size: 1.05rem;
+    font-size: 1.08rem;
     line-height: 1.5;
-    margin: 8px 0 4px;
+    margin-bottom: 6px;
   }
   .perk-body p { font-size: 0.88rem; color: var(--muted); }
   .perk-link {
     display: inline-block;
-    margin-top: 6px;
+    margin-top: 14px;
     color: var(--navy);
+    border: 2px solid var(--navy);
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+    padding: 7px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
   }
+  .perk-link:hover { background: var(--navy); color: #fff; }
 
   /* ===== Items ===== */
   .items-flex { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
@@ -437,9 +445,8 @@
     .price-card { padding: 18px; }
     .price-card .amount { font-size: 1.7rem; }
     .gift-banner strong { font-size: 0.95rem; }
-    .perk-card { padding: 16px; gap: 14px; }
-    .perk-card img, .perk-icon { width: 88px; height: 88px; }
-    .perk-icon { font-size: 2.2rem; }
+    .perks { gap: 16px; }
+    .perk-body { padding: 14px 18px 18px; }
     .perk-body h3 { font-size: 0.98rem; }
     .perk-body p { font-size: 0.82rem; }
     .cta-mascots { flex-wrap: wrap; }
@@ -590,19 +597,23 @@
     </div>
     <div class="perks">
       <div class="perk-card">
-        <img src="assets/ice_prototype.jpg" alt="ジンベーニョをかたどった試作品アイスキャンディー">
-        <div class="perk-body">
+        <div class="perk-media">
+          <img src="assets/ice_prototype.jpg" alt="ジンベーニョをかたどった試作品アイスキャンディー">
           <span class="gift-tag">参加特典</span>
+        </div>
+        <div class="perk-body">
           <h3>コンビニマルシェの試作品アイスを配布！</h3>
           <p>主催・コンビニマルシェが開発中の試作品アイスを、ツアー参加者のみなさんに配布します。</p>
         </div>
       </div>
       <div class="perk-card">
-        <div class="perk-icon">🛍️</div>
-        <div class="perk-body">
+        <div class="perk-media">
+          <img src="assets/eco_bag.jpg" alt="ピカチュウとマンタインがデザインされたポケモンのエコバッグ EVO BAG">
           <span class="gift-tag">来場特典</span>
-          <h3>エコバッグ配布！</h3>
-          <p>当日はビジター席を除く来場者先着7,000名に、入場ゲートでエコバッグが配布されます。</p>
+        </div>
+        <div class="perk-body">
+          <h3>ポケモンのエコバッグ配布！</h3>
+          <p>「ピカチュウ」と「マンタイン」デザインのエコバッグを、ビジター席を除く来場者先着7,000名に入場ゲートで配布。</p>
           <a class="perk-link" href="https://fcryukyu.com/news/66036/" target="_blank" rel="noopener">FC琉球公式のお知らせを見る →</a>
         </div>
       </div>
