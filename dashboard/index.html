@@ -269,7 +269,19 @@
     if (!x || x.tickets === undefined) {
       const res2 = await fetch('./data.json?t=' + Date.now());
       if (!res2.ok) throw new Error(res2.status);
-      x = await res2.json();
+      const j = await res2.json();
+      // 旧デプロイのGASは合計人数までしか返さないため、チケット枚数は
+      // 「集計ファイル時点のチケット不要枠」を引いて最新の合計から計算し直す
+      const freeSeats = Math.max(0, (j.total || 0) - (j.tickets || 0));
+      const total = (data && data.total) || j.total || 0;
+      const pending = j.pending_people || 0;
+      x = {
+        tickets: Math.max(0, total - freeSeats),
+        tickets_max: Math.max(0, total + pending - freeSeats),
+        pending_groups: j.pending_groups || 0,
+        pending_people: pending,
+        max_total: total + pending
+      };
     }
     if (x.tickets > 0) {
       $('tTickets').textContent = x.tickets + '枚'
