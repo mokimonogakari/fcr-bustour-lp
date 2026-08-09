@@ -9,5 +9,6 @@
  "pending_groups": 1,
  "pending_people": 4,
  "max_total": 36,
- "updated_at": "2026-08-09 20:45"
+ "tickets_max": 33,
+ "updated_at": "2026-08-09 21:20"
 }

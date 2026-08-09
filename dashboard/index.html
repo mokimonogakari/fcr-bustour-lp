@@ -272,7 +272,8 @@
       x = await res2.json();
     }
     if (x.tickets > 0) {
-      $('tTickets').textContent = x.tickets + '枚';
+      $('tTickets').textContent = x.tickets + '枚'
+        + (x.tickets_max > x.tickets ? '（保留含む最大 ' + x.tickets_max + '枚）' : '');
       $('tickets').style.display = '';
     }
     if (x.pending_people > 0 || x.pending_groups > 0) {

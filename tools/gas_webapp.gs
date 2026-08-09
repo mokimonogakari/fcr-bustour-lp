@@ -26,7 +26,8 @@ const KEYS = {
   'チケット必要枚数': 'tickets',
   '保留（確認中）組数': 'pending_groups',
   '保留（確認中）人数': 'pending_people',
-  '最大想定人数（確定＋保留）': 'max_total'
+  '最大想定人数（確定＋保留）': 'max_total',
+  'チケット必要枚数（保留含む最大）': 'tickets_max'
 };
 
 /** ダッシュボードからのアクセス時に集計値を返す */
