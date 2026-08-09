@@ -218,10 +218,12 @@
   const $ = id => document.getElementById(id);
   // GASウェブアプリのデプロイURL（/exec）。未設定の間は静的data.jsonにフォールバック
   const API_URL = 'https://script.google.com/macros/s/AKfycbx3Xc_C224KlPtfn-71GlrxrKsY2-H-BEg0LQnUNuuUOPZDPUg7WL6EJNWn0NAZezG-/exec';
+  let data = null;
   try {
     const res = await fetch(API_URL || './data.json?t=' + Date.now());
     if (!res.ok) throw new Error(res.status);
     const d = await res.json();
+    data = d;
     const yen = n => n.toLocaleString('ja-JP') + '円';
     $('groups').textContent = d.groups;
     $('adults').textContent = d.adults;
@@ -261,11 +263,14 @@
     $('err').style.display = 'block';
   }
 
-  // 保留人数・チケット枚数はGAS APIが返さないため、OCIが更新する集計ファイルから読む
+  // 保留人数・チケット枚数。GASが返さない旧デプロイの間は集計ファイルにフォールバック
   try {
-    const res2 = await fetch('./data.json?t=' + Date.now());
-    if (!res2.ok) throw new Error(res2.status);
-    const x = await res2.json();
+    let x = data;
+    if (!x || x.tickets === undefined) {
+      const res2 = await fetch('./data.json?t=' + Date.now());
+      if (!res2.ok) throw new Error(res2.status);
+      x = await res2.json();
+    }
     if (x.tickets > 0) {
       $('tTickets').textContent = x.tickets + '枚';
       $('tickets').style.display = '';
