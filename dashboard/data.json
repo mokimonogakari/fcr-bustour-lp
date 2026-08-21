@@ -1,14 +1,14 @@
 {
- "groups": 12,
- "adults": 21,
- "kids": 16,
- "total": 37,
- "revenue": 84000,
+ "groups": 14,
+ "adults": 23,
+ "kids": 18,
+ "total": 41,
+ "revenue": 92000,
  "unknown": 0,
- "tickets": 34,
+ "tickets": 41,
  "pending_groups": 0,
  "pending_people": 0,
- "max_total": 37,
- "tickets_max": 34,
- "updated_at": "2026-08-10 22:05"
+ "max_total": 41,
+ "tickets_max": 41,
+ "updated_at": "2026-08-21 20:17"
 }
